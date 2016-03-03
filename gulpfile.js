@@ -9,3 +9,7 @@ gulp.task('babel', () => {
   }))
   .pipe(gulp.dest('dist'));
 });
+
+gulp.task('watch', () => {
+  gulp.watch('./src/*.js', ['babel']);
+});
