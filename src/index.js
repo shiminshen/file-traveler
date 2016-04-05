@@ -1,3 +1,3 @@
-import fs from 'fs';
+import ln, {pi, e} from "./mathplus";
 
-console.log('hi');
+console.log("2π = " + ln(e)*pi*2);

@@ -1,19 +1,20 @@
 var gulp    = require('gulp');
-var babel   = require('gulp-babel');
-var nodemon = require('gulp-nodemon');
+var gulpLoadPlugins = require('gulp-load-plugins');
+var plugins = gulpLoadPlugins();
 
 
 gulp.task('compile', () => {
   return gulp.src('./src/*.js')
-  .pipe(babel({
+  .pipe(plugins.plumber())
+  .pipe(plugins.babel({
     presets: ['es2015', 'stage-0']
   }))
   .pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', () => {
-  // gulp.watch('./src#<{(|.js', ['babel']);
-  return nodemon({
+gulp.task('watch', ['compile'], () => {
+  // gulp.watch('./src#<{(|.js', ['compile']);
+  return plugins.nodemon({
     script: './dist/',
     watch: './src/',
     tasks: ['compile']
