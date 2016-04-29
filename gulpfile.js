@@ -1,15 +1,21 @@
-var gulp    = require('gulp');
+var gulp            = require('gulp');
 var gulpLoadPlugins = require('gulp-load-plugins');
-var plugins = gulpLoadPlugins();
+var plugins         = gulpLoadPlugins();
+var del             = require('del');
 
-
-gulp.task('compile', () => {
-  return gulp.src('./src/*.js')
+gulp.task('compile', ['clean'], () => {
+  return gulp.src('./src/**/*.js')
   .pipe(plugins.plumber())
   .pipe(plugins.babel({
     presets: ['es2015', 'stage-0']
   }))
   .pipe(gulp.dest('dist'));
+});
+
+gulp.task('clean', () => {
+  return del([
+    './dist'
+  ]);
 });
 
 gulp.task('watch', ['compile'], () => {
