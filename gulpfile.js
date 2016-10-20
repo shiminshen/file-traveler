@@ -2,6 +2,7 @@ var gulp            = require('gulp');
 var gulpLoadPlugins = require('gulp-load-plugins');
 var plugins         = gulpLoadPlugins();
 var del             = require('del');
+var run             = require('gulp-run')
 
 gulp.task('compile', ['clean'], () => {
   return gulp.src('./src/**/*.js')
@@ -12,6 +13,10 @@ gulp.task('compile', ['clean'], () => {
   .pipe(gulp.dest('dist'));
 });
 
+gulp.task('execute', () => {
+  return run('node ./dist').exec();
+})
+
 gulp.task('clean', () => {
   return del([
     './dist'
@@ -19,10 +24,6 @@ gulp.task('clean', () => {
 });
 
 gulp.task('watch', ['compile'], () => {
-  // gulp.watch('./src#<{(|.js', ['compile']);
-  return plugins.nodemon({
-    script: './dist/',
-    watch: './src/',
-    tasks: ['compile']
-  });
+  gulp.watch('./src/**/*.js', ['compile']);
+  gulp.watch('./dist/**/*.js', ['execute']);
 });
