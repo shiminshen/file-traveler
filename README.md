@@ -1,6 +1,6 @@
 Node Template
 ===
-Create a template to build babel with gulp.
+Create a template of Node project by babel
 
 Install
 ---
@@ -8,6 +8,6 @@ Install
 
 Usage
 ---
-    $ gulp watch
+    $ npm start
 
 create and edit your code in `src/` and compiled files are in `dist/`
