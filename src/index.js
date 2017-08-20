@@ -9,3 +9,5 @@ let fm = new FileManager('.')
 console.log(fm.listSync())
 fm.enter('./src/lib')
 console.log(fm.listSync())
+
+export default FileManager
