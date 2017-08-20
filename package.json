@@ -1,7 +1,7 @@
 {
-  "name": "node-template",
+  "name": "node-file-manager",
   "version": "1.0.0",
-  "description": "node template by gulp and babel",
+  "description": "node file maganer",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./src --exec babel-node",
@@ -19,5 +19,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "nodemon": "^1.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "fs-extra": "^4.0.1"
+  }
 }
