@@ -1,6 +1,6 @@
 {
   "name": "file-traveler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "node file maganer",
   "main": "./dist",
   "scripts": {
