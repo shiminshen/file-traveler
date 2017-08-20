@@ -46,11 +46,11 @@ export default class FileManager {
     return fs.statSync(this.rootPath)
   }
 
-  list() {
+  listFiles() {
     return listFiles(this.rootPath)
   }
 
-  listSync() {
+  listFilesSync() {
     return listFilesSync(this.rootPath)
   }
 
@@ -63,7 +63,7 @@ export default class FileManager {
       
   }
 
-  static list(path) {
+  static listFiles(path) {
     return listFiles(path)
   }
 

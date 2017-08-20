@@ -1,2 +1,1 @@
-import FileManager from './FileManager.js'
-export default FileManager
+module.exports = require('./FileManager.js')
