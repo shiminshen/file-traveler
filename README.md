@@ -1,6 +1,6 @@
-Node Template
+File Manager
 ===
-Create a template of Node project by babel
+Utility function to operate files
 
 Install
 ---
