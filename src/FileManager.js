@@ -67,7 +67,7 @@ export default class FileManager {
     return listFiles(path)
   }
 
-  static listSync(path) {
+  static listFilesSync(path) {
     return listFilesSync(path)
   }
 

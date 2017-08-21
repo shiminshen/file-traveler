@@ -1,4 +1,4 @@
-File Manager
+File Traveler
 ===
 Utility function to operate files
 
@@ -8,6 +8,23 @@ Install
 
 Usage
 ---
-    $ npm start
+Example:
+```javascript
+import FileTraveler, { listFiles, listFilesSync } from 'file-traveler'
 
-create and edit your code in `src/` and compiled files are in `dist/`
+// FP
+// support both sync and async
+console.log(listFilesSync('.'))
+
+listFilesSync('.')
+.then( files => console.log(files) )
+
+// OOP
+let fv = new FileTraveler('.')
+
+console.log(fv.listFilesSync())
+
+
+```
+
+
