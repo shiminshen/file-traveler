@@ -4,7 +4,7 @@ Utility function to operate files
 
 Install
 ---
-    $ npm install
+    $ npm install --save file-traveler
 
 Usage
 ---
@@ -16,7 +16,7 @@ import FileTraveler, { listFiles, listFilesSync } from 'file-traveler'
 // support both sync and async
 console.log(listFilesSync('.'))
 
-listFilesSync('.')
+listFiles('.')
 .then( files => console.log(files) )
 
 // OOP
