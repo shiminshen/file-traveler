@@ -22,7 +22,7 @@ fixtureUtil.mkdir({
 
 let tmpFilesPath = '/tmp/fileTraveler-test-files'
 
-describe('FileTraveler', () => {
+describe('OOP FileTraveler', () => {
 
   let fileList = [
     { name: 'directory1', isDirectory: true },
@@ -56,27 +56,29 @@ describe('FileTraveler', () => {
 
     it('Synchronous rename', () => {
 
-        renameSync(`${tmpFilesPath}/directory1`, `${tmpFilesPath}/renamedDir`)
-        renameSync(`${tmpFilesPath}/file1.js`, `${tmpFilesPath}/renamed.js`)
+      // rename file and directory
+      renameSync(`${tmpFilesPath}/directory1`, `${tmpFilesPath}/renamedDir`)
+      renameSync(`${tmpFilesPath}/file1.js`, `${tmpFilesPath}/renamed.js`)
 
-        let files = FileTraveler.listFilesSync(tmpFilesPath)
-        expect(files).to.deep.equal(renamedFileList)
+      let files = FileTraveler.listFilesSync(tmpFilesPath)
+      expect(files).to.deep.equal(renamedFileList)
     })
   })
 
   describe('Make directory', () => {
+
     it('Synchronous mkDir', () => {
 
       let beforeFiles = FileTraveler.listFilesSync(tmpFilesPath)
       expect(beforeFiles).to.be.an('array').deep.not.include({ name: 'newDir', isDirectory: true })
+
+      // mkdir
       mkDirSync(`${tmpFilesPath}/newDir`)
 
       let afterFiles = FileTraveler.listFilesSync(tmpFilesPath)
-
       expect(afterFiles).to.be.an('array').deep.include({ name: 'newDir', isDirectory: true })
 
     })
-
   })
 
 });
