@@ -3,8 +3,8 @@ import FileTraveler, {
   listFilesSync,
   rename,
   renameSync,
-  mkDir,
-  mkDirSync
+  mkdir,
+  mkdirSync
 } from '../src'
 import assert from 'assert'
 import { expect } from 'chai'
@@ -67,13 +67,13 @@ describe('OOP FileTraveler', () => {
 
   describe('Make directory', () => {
 
-    it('Synchronous mkDir', () => {
+    it('Synchronous mkdir', () => {
 
       let beforeFiles = FileTraveler.listFilesSync(tmpFilesPath)
       expect(beforeFiles).to.be.an('array').deep.not.include({ name: 'newDir', isDirectory: true })
 
       // mkdir
-      mkDirSync(`${tmpFilesPath}/newDir`)
+      mkdirSync(`${tmpFilesPath}/newDir`)
 
       let afterFiles = FileTraveler.listFilesSync(tmpFilesPath)
       expect(afterFiles).to.be.an('array').deep.include({ name: 'newDir', isDirectory: true })

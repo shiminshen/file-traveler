@@ -1,39 +1,20 @@
 import fs from 'fs-extra'
+import {
+  listFiles,
+  listFilesSync,
+  rename,
+  renameSync,
+  mkdir,
+  mkdirSync
+} from './lib'
 
-export async function listFiles(path) {
-
-  let files = await fs.readdir(path)
-  return files.map( name => ({
-    name,
-    isDirectory: fs.statSync(`${path}/${name}`).isDirectory()
-  }))
-  
-}
-
-export function listFilesSync(path) {
-
-  return fs.readdirSync(path)
-  .map( name => ({
-    name,
-    isDirectory: fs.statSync(`${path}/${name}`).isDirectory()
-  }))
-  
-}
-
-export async function mkDir(dir) {
-  return await fs.ensureDir(dir)
-}
-
-export function mkDirSync(dir) {
-  return fs.ensureDirSync(dir)
-}
-
-export async function rename(src, dist) {
-  return await fs.move(src, dist)
-}
-
-export function renameSync(src, dist) {
-  return fs.moveSync(src, dist)
+export {
+  listFiles,
+  listFilesSync,
+  rename,
+  renameSync,
+  mkdir,
+  mkdirSync
 }
 
 export default class FileManager {
