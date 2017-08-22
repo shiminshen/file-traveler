@@ -8,14 +8,7 @@ import {
   mkdirSync
 } from './lib'
 
-export {
-  listFiles,
-  listFilesSync,
-  rename,
-  renameSync,
-  mkdir,
-  mkdirSync
-}
+export * from './lib'
 
 export default class FileManager {
 
